@@ -9,8 +9,8 @@ const boardStyle = {
   gridAutoRows: "auto"
 };
 
-const Board = ({ cells = [] }) => (
-  <div style={boardStyle}>{cells.map(c => <Cell />)}</div>
+const Board = ({ cells = [], changeFunc = () => {} }) => (
+  <div style={boardStyle}>{cells.map((c, index) => <Cell cell={c} updCell={ () => changeFunc(index)}/>)}</div>
 );
 
 export default Board;
